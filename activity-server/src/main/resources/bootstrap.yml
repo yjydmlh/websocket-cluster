@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: activity-server
+  cloud:
+    nacos:
+      server-addr: 192.168.137.47
+      config:
+        file-extension: yaml
+  data:
+    redis:
+      host: 192.168.137.47
+  datasource:
+    url: jdbc:mysql://192.168.137.47:3306/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  threads:
+    virtual:
+      enabled: true
+server:
+  port: 8083
+
+logging:
+  level:
+    com.wsc.feign: debug
+
+#通用mapper
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+    - com.wsc.util.MyMapper
+  notEmpty: true
+  identity: MYSQL
+# 分页
+pagehelper:
+  helperDialect: mysql
+  params: count=countSql

@@ -1,0 +1,23 @@
+//使用 proto3 语法 ,未指定则使用proto2
+syntax = "proto3";
+
+//生成 proto 文件所在包路径
+
+//生成 proto 文件所在包路径
+option java_package = "com.wsc.proto";
+
+//生成 proto 文件名
+option java_outer_classname = "Message";
+
+message Data{
+  //消息类型
+  int32 code = 1;
+  //额外信息
+  string message = 2;
+  //服务名
+  string serverName = 3;
+  //具体数据信息，一般用json包装
+  string data = 4;
+  //是否异步请求
+  bool async = 5;
+}
